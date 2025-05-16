@@ -85,3 +85,31 @@ GO
 
 GRANT EXECUTE TO [pythonconsultor]
 GO
+
+EXEC sp_InsertarProducto 
+    @NombreProducto = N'Camisa',
+    @PrecioProducto = 29.99,
+    @StockProducto = 100;
+
+
+
+EXEC sp_InsertarProducto 
+    @NombreProducto = N'Celular',
+    @PrecioProducto = 10.99,
+    @StockProducto = 21;
+
+EXEC sp_ConsultarProductos;
+GO
+
+EXEC sp_ConsultarProductoPorID @IDProducto = 1;
+GO
+
+EXEC sp_ActualizarProducto 
+    @IDProducto = 1,
+    @NombreProducto = N'Camisa Actualizada',
+    @PrecioProducto = 34.99,
+    @StockProducto = 120;
+GO
+
+EXEC sp_EliminarProducto @IDProducto = 2;
+GO
